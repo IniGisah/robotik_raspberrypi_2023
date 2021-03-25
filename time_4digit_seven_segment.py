@@ -1,4 +1,5 @@
-# code modified, tweaked and tailored from code by bertwert 
+# code modified, tweaked and tailored from code by bertwert
+# code mdodified again for common anode
 # on RPi forum thread topic 91796
 import RPi.GPIO as GPIO
 import time
