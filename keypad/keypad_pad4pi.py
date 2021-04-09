@@ -1,6 +1,5 @@
 #install dulu librarynya pip install pad4pi
 from pad4pi import rpi_gpio
-
 KEYPAD = [
     [1, 2, 3,"A"],
     [4, 5, 6,"B" ],
