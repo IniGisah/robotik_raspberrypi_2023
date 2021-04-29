@@ -13,7 +13,7 @@ def f_sudut(sudut):
 	p.start(DutyCycle) # memulai PWM
 	print (sudut) # menampilkan sudut
 	p.ChangeDutyCycle(DutyCycle) # mengganti sudut
-	return
+	
 try:
 	while True:
 		sudut = 0 # sudut
