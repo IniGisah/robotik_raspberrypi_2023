@@ -10,14 +10,19 @@ KEYPAD = [
 ROW_PINS = [5, 6, 13, 19] # BCM numbering
 COL_PINS = [21, 20, 16,12] # BCM numbering
 
-factory = rpi_gpio.KeypadFactory()
-
-# Try factory.create_4_by_3_keypad
-# and factory.create_4_by_4_keypad for reasonable defaults
-keypad = factory.create_keypad(keypad=KEYPAD, row_pins=ROW_PINS, col_pins=COL_PINS)
-
-def printKey(key):
+def print_key(key):
     print(key)
 
-# printKey will be called each time a keypad button is pressed
-keypad.registerKeyPressHandler(printKey)
+try:
+    factory = rpi_gpio.KeypadFactory()
+    keypad = factory.create_4_by_3_keypad() # makes assumptions about keypad layout and GPIO pin numbers
+
+    keypad.registerKeyPressHandler(print_key)
+
+    print("Press buttons on your keypad. Ctrl+C to exit.")
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    print("Goodbye")
+finally:
+    keypad.cleanup()
